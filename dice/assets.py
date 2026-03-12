@@ -14,7 +14,7 @@ def get(name: str) -> str:
     return os.path.join(_assets_root, name)
 
 
-def list() -> list[str]:
+def list_all() -> list[str]:
     result = []
     for dirpath, _, filenames in os.walk(_assets_root):
         for f in filenames:

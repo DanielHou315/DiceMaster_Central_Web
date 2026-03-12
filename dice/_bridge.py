@@ -22,7 +22,8 @@ class Bridge:
         if self._js_post is not None:
             from pyodide.ffi import to_js
             self._js_post(to_js(message, dict_converter=lambda x: x))
-        self.sent.append(message)
+        else:
+            self.sent.append(message)
 
     def on(self, msg_type: str, handler) -> None:
         self._inbound_handlers.setdefault(msg_type, []).append(handler)

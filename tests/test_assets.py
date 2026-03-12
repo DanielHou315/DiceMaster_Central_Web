@@ -20,7 +20,7 @@ def test_list_assets(mock_bridge, tmp_path, monkeypatch):
     (tmp_path / "sub").mkdir()
     (tmp_path / "sub" / "c.jpg").touch()
     monkeypatch.setattr(assets, "_assets_root", str(tmp_path))
-    result = assets.list()
+    result = assets.list_all()
     assert "a.jpg" in result
     assert "b.json" in result
     assert "sub/c.jpg" in result

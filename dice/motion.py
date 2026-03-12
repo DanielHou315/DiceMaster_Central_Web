@@ -17,10 +17,12 @@ def on_shake(handler) -> None:
 
 
 def is_shaking() -> bool:
+    _register_polling()
     return _shaking
 
 
 def shake_intensity() -> float:
+    _register_polling()
     return _intensity
 
 

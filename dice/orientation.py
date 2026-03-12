@@ -5,18 +5,24 @@ _change_handlers: list = []
 _top: int = 1
 _bottom: int = 6
 _polling_registered: bool = False
+_dispatch_registered: bool = False
 
 
 def on_change(handler) -> None:
+    global _dispatch_registered
     _change_handlers.append(handler)
-    get_bridge().on("orientation.change", _dispatch_change)
+    if not _dispatch_registered:
+        get_bridge().on("orientation.change", _dispatch_change)
+        _dispatch_registered = True
 
 
 def top() -> int:
+    _register_polling()
     return _top
 
 
 def bottom() -> int:
+    _register_polling()
     return _bottom
 
 
@@ -43,8 +49,9 @@ def _update_state(message: dict) -> None:
 
 
 def _reset() -> None:
-    global _top, _bottom, _polling_registered
+    global _top, _bottom, _polling_registered, _dispatch_registered
     _change_handlers.clear()
     _top = 1
     _bottom = 6
     _polling_registered = False
+    _dispatch_registered = False

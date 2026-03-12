@@ -34,7 +34,7 @@ class MyGame(BaseStrategy):
 | `dice.motion` | `on_shake(fn)`, `is_shaking()`, `shake_intensity()` |
 | `dice.orientation` | `on_change(fn)`, `top()`, `bottom()` |
 | `dice.timer` | `set(interval, fn)`, `once(delay, fn)`, `cancel(id)` |
-| `dice.assets` | `get(name)`, `list()` |
+| `dice.assets` | `get(name)`, `list_all()` |
 | `dice.log` | `log(message)` (imported from `dice` directly) |
 | `dice.strategy` | `BaseStrategy` (abstract: `start_strategy()`, `stop_strategy()`) |
 
