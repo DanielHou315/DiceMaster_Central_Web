@@ -1,6 +1,6 @@
 [build-system]
-requires = ["setuptools>=68.0"]
-build-backend = "setuptools.backends._legacy:_Backend"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
 
 [project]
 name = "dice"
@@ -8,8 +8,8 @@ version = "0.1.0"
 description = "DiceMaster student SDK — web simulator backend"
 requires-python = ">=3.11"
 
-[project.optional-dependencies]
+[dependency-groups]
 dev = ["pytest>=7.0"]
 
-[tool.setuptools.packages.find]
-include = ["dice*"]
+[tool.hatch.build.targets.wheel]
+packages = ["dice"]
