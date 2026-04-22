@@ -21,7 +21,8 @@ class Bridge:
     def send(self, message: dict) -> None:
         if self._js_post is not None:
             from pyodide.ffi import to_js
-            self._js_post(to_js(message, dict_converter=lambda x: x))
+            from js import Object
+            self._js_post(to_js(message, dict_converter=Object.fromEntries))
         else:
             self.sent.append(message)
 
