@@ -208,3 +208,18 @@ __marimo__/
 
 # OS
 .DS_Store
+
+# AI agent / assistant files
+AGENTS.md
+CLAUDE.md
+CLAUDE.local.md
+.claude/
+GEMINI.md
+.gemini/
+.cursor/
+.cursorrules
+.aider*
+.windsurfrules
+.windsurf/
+.continue/
+.github/copilot-instructions.md
